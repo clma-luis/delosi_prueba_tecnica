@@ -2,7 +2,7 @@
 # Prueba Técnica DELOSI
 
 
-Este proyecto consiste en una vista en Next.js diseñada para rotar una matriz en sentido horario. La matriz se ingresa como un array de arrays de números, donde cada subarray representa una fila de la matriz. La aplicación devuelve la misma matriz pero rotada en sentido antihorario (90 grados).:
+Este proyecto consiste en una vista en Next.js diseñada para rotar una matriz en sentido horario. La matriz se ingresa como un array de arrays de números, donde cada subarray representa una fila de la matriz. La aplicación devuelve la misma matriz pero rotada en sentido antihorario (90 grados). Cabe destacar que se le ha agregado un select para que el usuario pueda tomar la opcion mas adecuada de acuerdo a la longitud de la matriz:
 
 Ejemplo de Uso
 

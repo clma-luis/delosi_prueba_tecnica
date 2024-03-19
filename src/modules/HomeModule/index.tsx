@@ -1,7 +1,7 @@
 "use client";
 import { MatrixInputs } from "@/components/MatrixInputs";
 import { Card } from "@/components/ui/Card";
-import { autoFillMatrix, generateInitialMatrix, rotateToTheLeft } from "@/shared/utils";
+import { autoFillMatrix, generateInitialMatrix, rotateToTheLeft } from "@/shared/utils/matrixUtils/matrixtUils";
 import { useState } from "react";
 import CallToActions from "./components/CallToActions";
 import SelectOptions from "./components/SelectOptions";
@@ -12,7 +12,7 @@ export enum BtnTypeText {
   reset = "Restablecer",
 }
 
-const HomeModules = () => {
+const HomeModule = () => {
   const [matrix, setMatrix] = useState<string[][]>(initialMatrixState);
   const [selectedValue, setSelectedValue] = useState("3");
   const [disableBtn, setDisableBtn] = useState(false);
@@ -60,7 +60,7 @@ const HomeModules = () => {
       <div className="max-w-screen-xl flex flex-col mx-auto p-4">
         <h1 className=" text-[18px] font-semibold text-center">PRUEBA TECNICA DELOSI</h1>
         <h3 className="text-[14px] mb-4 text-center">A continuación, ingresa un número de máximo dos dígitos en cada casilla.</h3>
-        <Card className="w-full p-4 flex flex-col justify-center items-center">
+        <Card className="w-full p-4 flex flex-col justify-center items-center mb-8">
           <MatrixInputs matrix={matrix} setMatrix={setMatrix} maxLength={Number(selectedValue) || 3} />
 
           <div className="w-full mb-4 grid grid-cols-1 md:grid-cols-1 gap-4 max-w-[350px] mt-4">
@@ -87,4 +87,4 @@ const HomeModules = () => {
   );
 };
 
-export default HomeModules;
+export default HomeModule;

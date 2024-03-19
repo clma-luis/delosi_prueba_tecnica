@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { Input } from "../ui/Input";
-import { generateInitialMatrix } from "@/shared/utils";
+import { generateInitialMatrix } from "@/shared/utils/matrixUtils/matrixtUils";
 import { onlyNumbers } from "@/shared/utils/formatString";
 
 interface InputOptProps {
@@ -36,7 +36,7 @@ export function MatrixInputs(props: InputOptProps) {
   return (
     <div className={`flex flex-col `}>
       {matrix.map((item, firstIndex) => (
-        <div className={`w-full flex `}>
+        <div className={`w-full flex `} key={firstIndex}>
           {item.map((currentValue, secondIndex) => (
             <div key={`${firstIndex}-${secondIndex}`} className="m-[3px]">
               <Input

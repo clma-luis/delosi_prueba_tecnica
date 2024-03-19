@@ -12,7 +12,7 @@ const ProtectRoute = ({ children }: { children: React.ReactNode }) => {
 
   useEffect(() => {
     handleProtectRoute()
-  }, []);
+  }, [pathname]);
 
   const handleProtectRoute = () => {
     if (!user) {

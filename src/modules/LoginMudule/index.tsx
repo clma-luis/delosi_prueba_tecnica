@@ -4,6 +4,8 @@ import { Button } from "@/components/ui/Button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/Card";
 import { Input } from "@/components/ui/Input";
 import { Label } from "@/components/ui/Label";
+import { useToast } from "@/components/ui/Toast/use-toast";
+
 import { USER_DATA } from "@/shared/constants/localStorageVariables";
 import { HOME_URL } from "@/shared/constants/urlPaths";
 import { setLocalStorage } from "@/shared/utils/localStorageUtils";
@@ -25,7 +27,8 @@ const initialState: LoginFormProps = {
 
 const LoginModule = ({ className, ...props }: CardProps) => {
   const [form, setForm] = useState<LoginFormProps>(initialState);
-  const router = useRouter()
+  const router = useRouter();
+  const { toast } = useToast();
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
@@ -34,8 +37,28 @@ const LoginModule = ({ className, ...props }: CardProps) => {
   };
 
   const handleOnSubmit = async () => {
+    var validEmail = /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/;
+
+    if (!validEmail.test(form.email)) {
+      handleErrorAlert("Error", "Debe ser un correo válido");
+      return;
+    }
+
+    if (!form.email || !form.password) {
+      handleErrorAlert("Error", "Todos los campos son obligatorios");
+
+      return;
+    }
     setLocalStorage(USER_DATA, form.email);
-    router.push(HOME_URL)
+    router.push(HOME_URL);
+  };
+
+  const handleErrorAlert = (title: string, description: string) => {
+    toast({
+      title: title,
+      description: `* ${description}`,
+      variant: "destructive",
+    });
   };
 
   return (

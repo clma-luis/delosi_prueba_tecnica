@@ -1,8 +1,9 @@
+import { Toaster } from "@/components/ui/Toast/toaster";
+import ProtectRoute from "@/shared/hooks/ProtectRoutes";
+import { ThemeProvider } from "@/shared/providers/ThemeProvider";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "@/shared/providers/ThemeProvider";
-import ProtectRoute from "@/shared/hooks/ProtectRoutes";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,7 +21,10 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-          <ProtectRoute>{children}</ProtectRoute>
+          <ProtectRoute>
+            {children}
+            <Toaster />
+          </ProtectRoute>
         </ThemeProvider>
       </body>
     </html>

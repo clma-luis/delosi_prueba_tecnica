@@ -1,36 +1,68 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+# Prueba Técnica DELOSI
 
-First, run the development server:
 
+Este proyecto consiste en una vista en Next.js diseñada para rotar una matriz en sentido horario. La matriz se ingresa como un array de arrays de números, donde cada subarray representa una fila de la matriz. La aplicación devuelve la misma matriz pero rotada en sentido antihorario (90 grados).:
+
+Ejemplo de Uso
+
+Ejemplo 1:
+Input: [ [1,2], [3,4] ] - Output: [ [2,4], [1,3] ]
+
+Ejemplo 2:
+Input: [ [1,2,3], [4,5,6], [7,8,9] ] - Output: [ [3,6,9], [2,5,8], [1,4,7] ]
+
+## Demo del proyecto
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+https://github.com/clma-luis/delosi_prueba_tecnica
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Instalación
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Para instalar este proyecto, asegúrate de tener Node.js instalado en tu sistema. Luego, sigue estos pasos:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+1. Clona el repositorio desde: 
+```bash
+https://github.com/clma-luis/delosi_prueba_tecnica
+```
 
-## Learn More
+2. En la terminal, navega hasta el directorio del proyecto.
+3. Ejecuta npm install para instalar las dependencias.
+```bash
+npm install
+```
+4. Utiliza alguno de los siguientes comandos:
+ - npm run dev para ejecutar el servidor de desarrollo.
+```bash
+npm run dev
+```
+- npm run build para compilar el proyecto.
+```bash
+npm run build
+```
+- npm start para iniciar el servidor en producción.
+```bash
+npm run start
+```
+- npm test para ejecutar las pruebas unitarias.
+```bash
+npm run test
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Herramientas utilizadas
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+**Next.js:** Framework de React para construir aplicaciones web, con soporte para server-side rendering y generación de páginas estáticas.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+**React:** Biblioteca JavaScript para crear interfaces de usuario interactivas y dinámicas.
 
-## Deploy on Vercel
+**Tailwind CSS:** Framework de CSS utility-first que ofrece clases predefinidas para estilizar componentes de manera rápida y coherente.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+**Radix UI:** Colección de componentes de interfaz de usuario accesibles y modulares para React.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+**Jest:** Framework de pruebas unitarias para JavaScript, utilizado para escribir y ejecutar pruebas automatizadas.
+
+**React Testing Library:** Biblioteca para escribir pruebas de componentes de React centradas en el comportamiento del usuario.
+
+**TypeScript:** Superconjunto tipado de JavaScript que compila a JavaScript puro, proporcionando tipos estáticos opcionales para mejorar la robustez y mantenibilidad del código.
+
+**ESLint:** Herramienta de linting para identificar y corregir problemas en el código JavaScript/TypeScript, ayudando a mantener un estilo de código consistente y libre de errores.

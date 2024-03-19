@@ -13,9 +13,7 @@ Ejemplo 2:
 Input: [ [1,2,3], [4,5,6], [7,8,9] ] - Output: [ [3,6,9], [2,5,8], [1,4,7] ]
 
 ## Demo del proyecto
-```bash
-https://github.com/clma-luis/delosi_prueba_tecnica
-```
+- https://github.com/clma-luis/delosi_prueba_tecnica
 
 ## Instalación
 

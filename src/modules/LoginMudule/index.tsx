@@ -46,7 +46,7 @@ const LoginModule = ({ className, ...props }: CardProps) => {
         </div>
 
         <CardTitle className="text-base flex justify-center">Bienvenid@ a la prueba técnica de DELOSI</CardTitle>
-        <CardDescription>Ingresa tu nombre de usuario y contraseña para continuar</CardDescription>
+        <CardDescription>Ingresa tu correo y contraseña para continuar</CardDescription>
       </CardHeader>
       <CardContent className="grid gap-4">
         <div className="grid gap-2">

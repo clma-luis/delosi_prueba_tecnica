@@ -7,8 +7,8 @@ import * as React from "react";
 import { Button } from "../ui/Button";
 import LogoutIcon from "../ui/icons/LogoutIcon";
 import UserCircleIcon from "../ui/icons/UserCircleIcon";
-import { removeLocalStorage } from "@/shared/utils/localStorageUtils";
-import { USER_DATA } from "@/shared/constants/localStorageVariables";
+import { getLocalStorage, removeLocalStorage } from "@/shared/utils/localStorageUtils";
+import { THEME, USER_DATA } from "@/shared/constants/localStorageVariables";
 import { LOGIN_URL } from "@/shared/constants/urlPaths";
 import { useRouter } from "next/navigation";
 
@@ -21,6 +21,15 @@ export function NavbarMenu() {
   const [modeType, setModeType] = React.useState(ModeType.LIGHT);
   const { setTheme } = useTheme();
   const router = useRouter();
+  const currentTheme = getLocalStorage(THEME);
+
+  React.useEffect(() => {
+    if(currentTheme){ 
+      setModeType(ModeType[currentTheme.toUpperCase() as keyof typeof ModeType]);
+      setTheme(currentTheme)
+    }
+  }, [])
+  
 
   const handleModeType = () => {
     setModeType((prev) => (prev === ModeType.LIGHT ? ModeType.DARK : ModeType.LIGHT));

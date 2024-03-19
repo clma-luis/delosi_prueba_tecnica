@@ -1,24 +1,21 @@
 import { Button } from "@/components/ui/Button";
-import React, { useState } from "react";
+import { Dispatch, SetStateAction } from "react";
+import { BtnTypeText } from "../..";
 
 interface CallToActionsProps {
   disableBtn: boolean;
   selectedValue: string;
+  btnText: BtnTypeText;
+  setBtnText: Dispatch<SetStateAction<BtnTypeText>>;
   handleAutoFill: () => void;
   handleRotateMatrix: (rotateAll?: boolean) => void;
   handleDisableBtn: () => boolean;
-  handleCleanMatrix: () => void
-}
-
-enum BtnTypeText {
-  autoFill = "Autorrellenar",
-  reset = "Restablecer",
+  handleCleanMatrix: () => void;
 }
 
 const CallToActions = (props: CallToActionsProps) => {
-  const { disableBtn, selectedValue, handleAutoFill, handleRotateMatrix, handleDisableBtn, handleCleanMatrix } = props;
-  const [btnText, setBtnText] = useState(BtnTypeText.autoFill);
-  const isUpToThree = Number(selectedValue) > 3
+  const { disableBtn, selectedValue, btnText, setBtnText, handleAutoFill, handleRotateMatrix, handleDisableBtn, handleCleanMatrix } = props;
+  const isUpToThree = Number(selectedValue) > 3;
 
   const handleActionBtn = (rotateAll?: boolean) => {
     handleRotateMatrix(rotateAll);
@@ -27,23 +24,26 @@ const CallToActions = (props: CallToActionsProps) => {
 
   return (
     <div className={`w-full mb-4 grid grid-cols-1 md:grid-cols-1 gap-2`}>
-      <Button className="mx-1" 
-      disabled={disableBtn}
+      <Button
+        className="mx-1"
+        disabled={disableBtn}
         onClick={() => {
           handleAutoFill();
           setBtnText(BtnTypeText.autoFill);
         }}
-      > 
-      {btnText}
+      >
+        {btnText}
       </Button>
-      <Button  className="mx-1" disabled={handleDisableBtn()} onClick={() => handleActionBtn()}>
+      <Button className="mx-1" disabled={handleDisableBtn()} onClick={() => handleActionBtn()}>
         Rotar bordes
       </Button>
-    
-      {isUpToThree && <Button className="mx-1"  disabled={handleDisableBtn() || +selectedValue <= 3} onClick={() => handleActionBtn(true)}>
-        Rotar todo
-      </Button>}  
-      <Button  className="mx-1" onClick={() => handleCleanMatrix()}>
+
+      {isUpToThree && (
+        <Button className="mx-1" disabled={handleDisableBtn() || +selectedValue <= 3} onClick={() => handleActionBtn(true)}>
+          Rotar todo
+        </Button>
+      )}
+      <Button className="mx-1" onClick={() => handleCleanMatrix()}>
         Limpiar todo
       </Button>
     </div>

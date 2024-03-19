@@ -6,6 +6,7 @@ import { useState } from "react";
 import CallToActions from "./components/CallToActions";
 import SelectOptions from "./components/SelectOptions";
 import { initialMatrixState } from "./components/SelectOptions/config";
+import { DrawerInformation } from "./components/DrawerInformation";
 
 export enum BtnTypeText {
   autoFill = "Autorrellenar",
@@ -58,7 +59,15 @@ const HomeModule = () => {
   return (
     <>
       <div className="max-w-screen-xl flex flex-col mx-auto p-4">
+       
+        <div className="mt-2 mb-2 w-full flex-col justify-center items-center">
         <h1 className=" text-[18px] font-semibold text-center">PRUEBA TECNICA DELOSI</h1>
+        <div className="w-full flex justify-center items-center mt-2">
+          <DrawerInformation/>
+        </div>
+          
+        </div>
+        
         <h3 className="text-[14px] mb-4 text-center">A continuación, ingresa un número de máximo dos dígitos en cada casilla.</h3>
         <Card className="w-full p-4 flex flex-col justify-center items-center mb-8">
           <MatrixInputs matrix={matrix} setMatrix={setMatrix} maxLength={Number(selectedValue) || 3} />
@@ -83,6 +92,7 @@ const HomeModule = () => {
           <p className="text-[14px] mt-3">Para poder rotar, es necesario que todas las casillas tengan un número.</p>
         </Card>
       </div>
+     
     </>
   );
 };

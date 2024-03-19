@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
-import { Input } from "../ui/input";
+import { Input } from "../ui/Input";
 import { generateInitialMatrix } from "@/shared/utils";
+import { onlyNumbers } from "@/shared/utils/formatString";
 
 interface InputOptProps {
   maxLength: number;
@@ -8,7 +9,7 @@ interface InputOptProps {
   setMatrix: React.Dispatch<React.SetStateAction<string[][]>>;
 }
 
-export function InputOtp(props: InputOptProps) {
+export function MatrixInputs(props: InputOptProps) {
   const { maxLength, matrix, setMatrix } = props;
 
   useEffect(() => {
@@ -18,17 +19,17 @@ export function InputOtp(props: InputOptProps) {
   const handleOnchange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value, name } = e.target;
     const [firstIndex, secondIndex] = name.split("-");
+    
     if (value.length > 2) return;
 
     const spreadMatrix = [...matrix];
-    spreadMatrix[Number(firstIndex)][Number(secondIndex)] = value;
+    spreadMatrix[Number(firstIndex)][Number(secondIndex)] = onlyNumbers(value);
 
     setMatrix(spreadMatrix);
   };
 
   const handleCreateArray = (maxLength: number) => {
     const value: string[][] = generateInitialMatrix(maxLength);
-    console.log("handleCreateArray", value);
     setMatrix(value);
   };
 
@@ -42,7 +43,7 @@ export function InputOtp(props: InputOptProps) {
                 value={currentValue}
                 name={`${firstIndex}-${secondIndex}`}
                 onChange={handleOnchange}
-                type="number"
+                type="text"
                 placeholder=""
                 className="w-12 h-12 m-auto text-center "
               />
